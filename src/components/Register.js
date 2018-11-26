@@ -1,19 +1,32 @@
 import React from "react";
 import { connect } from "react-redux";
 import { testAction } from "../actions/index";
+import "./Register.scss";
+import { AwesomeButton } from "react-awesome-button";
+import styles from "react-awesome-button/src/styles/themes/theme-rickiest";
 
 function Register(props) {
 	return (
-		<div>
-			<p>Test</p>
-			<img src={require("../pictures/Learnery_Logo.png")} alt="" />
-			{/* always remember to require the image when importing */}
-			<button
+		<section className="registerSection">
+			<img
+				className="learneryLogo"
+				src={require("../pictures/Learnery_Logo.png")}
+				alt=""
+			/>
+			<p className="registerFirstP">
+				Will you pass your software <br /> engineering interviews?
+			</p>
+			<p className="registerSecondP">
+				Get ahead of the pack by practicing programming trivia on Learnery!
+			</p>
+			<AwesomeButton
 				onClick={e => {
 					props.dispatch(testAction("Test"));
 				}}
-			/>
-		</div>
+			>
+				Get Started!
+			</AwesomeButton>
+		</section>
 	);
 }
 
