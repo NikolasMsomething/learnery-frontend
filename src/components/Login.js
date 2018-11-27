@@ -1,34 +1,32 @@
 import React from "react";
 import { connect } from "react-redux";
-import { openRegisterModal, closeLoginModal } from "../actions/index";
-import "./Register.scss";
+import { openLoginModal, closeRegisterModal } from "../actions/index";
+import "./Login.scss";
 import { AwesomeButton } from "react-awesome-button";
 import styles from "react-awesome-button/src/styles/themes/theme-amber";
 
-function Register(props) {
+function Login(props) {
 	return (
-		<section className="registerSection">
+		<section className="loginSection">
 			<img
 				className="learneryLogo"
 				src={require("../pictures/Learnery_Logo.png")}
 				alt=""
 			/>
-			<p className="registerFirstP">
+			<p className="loginFirstP">
 				Will you pass your software <br /> engineering interviews?
 			</p>
-			<p className="registerSecondP">
+			<p className="loginSecondP">
 				Get ahead of the pack by practicing programming trivia on Learnery!{" "}
 			</p>
 			<AwesomeButton
-				style={{ color: "white" }}
-				className="aws-register"
 				type="secondary"
 				action={e => {
-					props.dispatch(closeLoginModal());
-					props.dispatch(openRegisterModal());
+					props.dispatch(closeRegisterModal());
+					props.dispatch(openLoginModal());
 				}}
 			>
-				Get Started!
+				Continue
 			</AwesomeButton>
 		</section>
 	);
@@ -39,4 +37,4 @@ const mapStateToProps = state => {
 		name: state.login.name
 	};
 };
-export default connect(mapStateToProps)(Register);
+export default connect(mapStateToProps)(Login);
