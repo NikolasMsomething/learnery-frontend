@@ -1,8 +1,8 @@
-import './Login.scss';
 import React from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
-import { closeModals } from '../../controller/actions';
+import { closeModals } from '../../../controller/actions';
+import LoginForm from './LoginForm';
 
 const customStyles = {
 	content: {
@@ -62,19 +62,7 @@ function LoginModal(props) {
 					close
 				</button>
 
-				<form
-					onSubmit={e => {
-						e.preventDefault();
-						console.log(e.currentTarget.username.value, e.currentTarget.password.value);
-					}}
-					className="loginModalForm"
-				>
-					<label forHtml="username">Username</label>
-					<input type="text" name="username" />
-					<label forHtml="username">Password</label>
-					<input type="password" name="password" />
-					<input type="submit" />
-				</form>
+				<LoginForm />
 			</Modal>
 		</div>
 	);

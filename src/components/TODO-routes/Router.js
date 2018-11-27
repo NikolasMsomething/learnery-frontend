@@ -1,3 +1,6 @@
+/**
+ * This was removed until it can be refactored. Should be placed within App.js.
+ */
 import SimpleReactRouter from 'simple-react-router';
 import { connect } from 'react-redux';
 import Register from '../Register.js';

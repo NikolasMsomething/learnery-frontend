@@ -1,4 +1,11 @@
-import { OPEN_LOGIN_MODAL, CLOSE_LOGIN_MODAL, OPEN_REGISTER_MODAL, CLOSE_REGISTER_MODAL } from '../actions';
+import {
+	OPEN_LOGIN_MODAL,
+	OPEN_REGISTER_MODAL,
+	CLOSE_MODALS,
+	SUBMITTING_BEGIN
+	// SUBMITTING_ERROR,
+	// SUBMITTING_SUCCESS
+} from '../actions';
 
 const initialState = {
 	name: 'nick',
@@ -6,7 +13,8 @@ const initialState = {
 	loggedIn: false,
 	username: 'nikoclops',
 	showLoginModal: false,
-	showRegisterModal: false
+	showRegisterModal: false,
+	submitting: false
 };
 
 const landingReducer = (state = initialState, action) => {
@@ -16,21 +24,24 @@ const landingReducer = (state = initialState, action) => {
 				showLoginModal: true
 			});
 		}
-		case CLOSE_LOGIN_MODAL: {
+		case OPEN_REGISTER_MODAL: {
 			return Object.assign({}, state, {
+				showRegisterModal: true,
 				showLoginModal: false
 			});
 		}
-		case OPEN_REGISTER_MODAL: {
+		case CLOSE_MODALS: {
 			return Object.assign({}, state, {
-				showRegisterModal: true
+				showRegisterModal: false,
+				showLoginModal: false
 			});
 		}
-		case CLOSE_REGISTER_MODAL: {
+		case SUBMITTING_BEGIN: {
 			return Object.assign({}, state, {
-				showRegisterModal: false
+				submitting: true
 			});
 		}
+
 		default:
 			return state;
 	}
