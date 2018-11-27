@@ -1,8 +1,6 @@
 import './Landing.scss';
 import React, { Component } from 'react';
-import Header from './Header.js';
 // import Footer from "../Footer";
-// import Modal from '../Modal';
 import { connect } from 'react-redux';
 import LoginModal from './LoginModal';
 import RegisterModal from './RegisterModal';
@@ -20,7 +18,10 @@ class Landing extends Component {
 		const { showLoginModal, showRegisterModal } = this.props;
 		return (
 			<main className="App">
-				<Header />
+				<header className="headerBar">
+					<img src={require('../../assets/GitHub-Mark-64px.png')} alt="" />
+					<button onClick={this.openLoginModal}>Login</button>
+				</header>
 				{showLoginModal && <LoginModal />}
 				{showRegisterModal && <RegisterModal />}
 				<section className="registerSection">
