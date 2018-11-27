@@ -1,16 +1,14 @@
-import React, { Component } from "react";
-import SimpleReactRouter from "simple-react-router";
-import { connect } from "react-redux";
-import Register from "../Register.js";
-import Login from "../Login.js";
-import Dumby from "../Dumby.js";
+import SimpleReactRouter from 'simple-react-router';
+import { connect } from 'react-redux';
+import Register from '../Register.js';
+import Login from '../Login.js';
 
 class Router extends SimpleReactRouter {
 	getRoutes(map, props) {
 		if (!props.authToken) {
-			map("/", Register);
+			map('/', Register);
 		} else {
-			map("/", Login);
+			map('/', Login);
 		}
 	}
 }
