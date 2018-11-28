@@ -1,4 +1,4 @@
-import { BACKEND_URL, goFetch } from './config';
+// import { BACKEND_URL, goFetch } from './config';
 
 /**
  * TODO: Complete this stub.

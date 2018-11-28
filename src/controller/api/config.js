@@ -8,7 +8,7 @@ export const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhos
  * @returns the decoded JSON response.
  * @throws if response is not a 200-level response (i.e. fetch's res.ok is false).
  */
-export default function goFetch(path, config = { method: 'get' }, params = null) {
+export function goFetch(path, config = { method: 'get' }, params = null) {
 	const url = new URL(path);
 	if (params !== null) Object.entries(params).forEach(([k, v]) => url.searchParams.append(k, v));
 	// set sensible default options
@@ -21,7 +21,7 @@ export default function goFetch(path, config = { method: 'get' }, params = null)
 	};
 	// Serialize body if necessary
 	if (options.body && typeof options.body === 'object') options.body = JSON.stringify(options.body);
-	return fetch(url, config).then(res => {
+	return fetch(url, options).then(res => {
 		if (!res.ok) {
 			if (res.headers.has('content-type') && res.headers.get('content-type').startsWith('application/json')) {
 				// It's a nice JSON error returned by us, so decode it

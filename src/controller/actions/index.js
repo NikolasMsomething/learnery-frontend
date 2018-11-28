@@ -1,46 +1,60 @@
-export const CLOSE_MODALS = "CLOSE_MODALS";
+import api from '../api';
+
+export const CLOSE_MODALS = 'CLOSE_MODALS';
 export const closeModals = () => ({
 	type: CLOSE_MODALS
 });
 
-export const OPEN_REGISTER_MODAL = "OPEN_REGISTER_MODAL";
+export const OPEN_REGISTER_MODAL = 'OPEN_REGISTER_MODAL';
 export const openRegisterModal = () => ({
 	type: OPEN_REGISTER_MODAL
 });
 
-export const OPEN_LOGIN_MODAL = "OPEN_LOGIN_MODAL";
+export const OPEN_LOGIN_MODAL = 'OPEN_LOGIN_MODAL';
 export const openLoginModal = () => ({
 	type: OPEN_LOGIN_MODAL
 });
 
-export const handleUserRegistration = inputObj => (dispatch, state) => {
-	console.log(inputObj);
+export const handleUserRegistration = input => (dispatch, state) => {
+	// TODO: Add more sophisticated error handling
+	dispatch(authSubmit());
+	api.auth
+		.register(input)
+		.then(res => dispatch(authSuccess(res)))
+		.catch(err => dispatch(authError(err)));
 };
 
-export const handleUserLogin = inputObj => (dispatch, state) => {
-	console.log(inputObj);
+export const handleUserLogin = input => (dispatch, state) => {
+	// TODO: Add more sophisticated error handling
+	dispatch(authSubmit());
+	api.auth
+		.login(input)
+		.then(res => dispatch(authSuccess(res)))
+		.catch(err => dispatch(authError(err)));
 };
 
-export const SUBMITTING_BEGIN = "SUBMITTING_BEGIN";
-export const _submittingBegin = () => ({
-	type: SUBMITTING_BEGIN
+export const AUTH_SUBMIT = 'AUTH_SUBMIT';
+const authSubmit = () => ({
+	type: AUTH_SUBMIT
 });
 
-export const SUBMITTING_SUCCESS = "SUBMITTING_SUCCESS";
-export const _submittingSuccess = () => ({
-	type: SUBMITTING_SUCCESS
+export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+const authSuccess = user => ({
+	type: AUTH_SUCCESS,
+	payload: user
 });
 
-export const SUBMITTING_ERROR = "SUBMITTING_ERROR";
-export const _submittingError = () => ({
-	type: SUBMITTING_ERROR
+export const AUTH_ERROR = 'AUTH_ERROR';
+const authError = err => ({
+	type: AUTH_SUCCESS,
+	payload: err
 });
 
-export const EXPAND_CARD = "EXPAND_CARD";
+export const EXPAND_CARD = 'EXPAND_CARD';
 export const expandCard = () => {
 	return {
 		type: EXPAND_CARD
 	};
 };
 
-export const SEND_ANSWER = "SEND_ANSWER";
+export const SEND_ANSWER = 'SEND_ANSWER';
