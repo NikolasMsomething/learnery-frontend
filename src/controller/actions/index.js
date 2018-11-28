@@ -33,6 +33,14 @@ export const handleUserLogin = input => (dispatch, state) => {
 		.catch(err => dispatch(authError(err)));
 };
 
+export const handleAuthRefresh = () => dispatch => {
+	dispatch(authSubmit());
+	api.auth
+		.refresh()
+		.then(res => dispatch(authSuccess(res)))
+		.catch(err => dispatch(authError(err)));
+};
+
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const authSuccess = user => ({
 	type: AUTH_SUCCESS,
