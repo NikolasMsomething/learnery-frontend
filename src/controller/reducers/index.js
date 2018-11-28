@@ -1,8 +1,10 @@
-import landingReducer from './landingReducer';
-import { combineReducers } from 'redux';
+import landingReducer from "./landingReducer";
+import learnAppReducer from "./learnAppReducer";
+import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
-	landing: landingReducer
+	landing: landingReducer,
+	learn: learnAppReducer
 });
 
 export default rootReducer;

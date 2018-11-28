@@ -152,7 +152,15 @@ code {
 }
 
 /* CSS VARIABLES FOR LEARNERY  */
+#root {
+	height: 100vh;
+}
 
+.App {
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+}
 :root {
 	--lnGold: #ffca32;
 	--lnBlack: #000000;
