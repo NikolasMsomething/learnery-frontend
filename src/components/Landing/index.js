@@ -11,7 +11,8 @@ import { openRegisterModal, openLoginModal } from '../../controller/actions';
 import LoginModal from './Login/LoginModal';
 import RegisterModal from './Register/RegisterModal';
 // Assets
-const learneryLogo = require('../../assets/Learnery_Logo.png');
+const LearneryHero = require('../../assets/Learnery_Logo.png');
+const GithubIcon = require('../../assets/GitHub-Mark-64px.png');
 
 class Landing extends Component {
 	openRegisterModal = () => this.props.dispatch(openRegisterModal());
@@ -22,14 +23,14 @@ class Landing extends Component {
 		return (
 			<main className="App">
 				<header className="headerBar">
-					<img src={require('../../assets/GitHub-Mark-64px.png')} alt="" />
+					<img src={GithubIcon} alt="" />
 					{/* TODO: Add state to manage being logged in */}
 					<button onClick={this.openLoginModal}>Login</button>
 				</header>
 				{showLoginModal && <LoginModal />}
 				{showRegisterModal && <RegisterModal />}
 				<section className="registerSection">
-					<img className="learneryLogo" src={learneryLogo} alt="" />
+					<img className="LearneryHero" src={LearneryHero} alt="" />
 					<p className="registerFirstP">
 						Will you pass your software <br /> engineering interviews?
 					</p>
