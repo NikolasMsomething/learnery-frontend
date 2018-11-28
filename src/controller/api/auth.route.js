@@ -1,4 +1,5 @@
 import { BACKEND_URL, goFetch } from './config';
+const BASE_URL = BACKEND_URL + '/auth';
 
 /**
  * Registers a user with the backend server.
@@ -7,7 +8,7 @@ import { BACKEND_URL, goFetch } from './config';
  * @throws if user is not properly authenticated
  * @throws if any fields are missing
  */
-const register = credentials => {};
+const register = credentials => goFetch(BASE_URL + '/register', { method: 'POST', body: credentials });
 
 /**
  * Logs in to the backend server and stores token for future requests.
@@ -15,7 +16,7 @@ const register = credentials => {};
  * @returns {{username: string, createdAt: string, updatedAt: string}}
  * @throws if user is not properly authenticated
  */
-const login = credentials => {};
+const login = credentials => goFetch(BASE_URL + '/login', { method: 'POST', body: credentials });
 
 /**
  * Exchanges auth token for new auth token.
