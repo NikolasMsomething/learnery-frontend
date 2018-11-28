@@ -1,3 +1,4 @@
+import cache from './cache';
 export const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8080';
 
 /**
@@ -17,10 +18,23 @@ export function goFetch(path, config = { method: 'get' }, params = null) {
 			'Content-Type': 'application/json; charset=utf-8'
 		},
 		mode: 'cors',
+		auth: 'true',
 		...config
 	};
 	// Serialize body if necessary
 	if (options.body && typeof options.body === 'object') options.body = JSON.stringify(options.body);
+	// Set auth header
+	if (options.auth) {
+		const token = cache.authToken.load();
+		if (!token) {
+			return Promise.reject({
+				code: 400,
+				message: 'Missing auth token for Authorization header.'
+			});
+		}
+		delete options.token;
+		options.headers.Authorization = `Bearer ${token}`;
+	}
 	return fetch(url, options).then(res => {
 		if (!res.ok) {
 			if (res.headers.has('content-type') && res.headers.get('content-type').startsWith('application/json')) {

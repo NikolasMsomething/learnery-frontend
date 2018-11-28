@@ -1,7 +1,7 @@
 import { AUTH_SUBMIT, AUTH_SUCCESS, AUTH_ERROR } from '../actions';
 
 const initialState = {
-	authToken: undefined,
+	authToken: null,
 	loggedIn: false,
 	user: null,
 	submitting: false,

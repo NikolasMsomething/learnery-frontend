@@ -19,7 +19,7 @@ class Landing extends Component {
 	openLoginModal = () => this.props.dispatch(openLoginModal());
 
 	render() {
-		const { showLoginModal, showRegisterModal } = this.props;
+		const { showLoginModal, showRegisterModal, loggedIn } = this.props;
 		return (
 			<main className="App">
 				<header className="headerBar">
@@ -48,7 +48,8 @@ class Landing extends Component {
 
 const mapStateToProps = state => ({
 	showLoginModal: state.landing.showLoginModal,
-	showRegisterModal: state.landing.showRegisterModal
+	showRegisterModal: state.landing.showRegisterModal,
+	loggedIn: state.auth.loggedIn
 });
 
 export default connect(mapStateToProps)(Landing);

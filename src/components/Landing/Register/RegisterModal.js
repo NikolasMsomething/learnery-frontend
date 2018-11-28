@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { closeModals } from '../../../controller/actions';
 import RegisterForm from './RegisterForm';
 
@@ -10,6 +11,7 @@ class RegisterModal extends Component {
 		Modal.setAppElement('main');
 		return (
 			<div>
+				{this.props.loggedIn && <Redirect to="/learn" />}
 				<Modal
 					isOpen={true}
 					style={customStyles}
@@ -71,4 +73,8 @@ const customStyles = {
 	}
 };
 
-export default connect()(RegisterModal);
+const mapStateToProps = state => ({
+	loggedIn: state.auth.loggedIn
+});
+
+export default connect(mapStateToProps)(RegisterModal);

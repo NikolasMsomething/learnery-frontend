@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { closeModals } from '../../../controller/actions';
 import LoginForm from './LoginForm';
 
@@ -31,7 +32,8 @@ const customStyles = {
 function LoginModal(props) {
 	Modal.setAppElement('main');
 	return (
-		<div>
+		<>
+			{props.loggedIn && <Redirect to="/learn" />}
 			<Modal
 				isOpen={true}
 				style={customStyles}
@@ -64,8 +66,12 @@ function LoginModal(props) {
 
 				<LoginForm />
 			</Modal>
-		</div>
+		</>
 	);
 }
 
-export default connect()(LoginModal);
+const mapStateToProps = state => ({
+	loggedIn: state.auth.loggedIn
+});
+
+export default connect(mapStateToProps)(LoginModal);

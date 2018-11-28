@@ -33,15 +33,15 @@ export const handleUserLogin = input => (dispatch, state) => {
 		.catch(err => dispatch(authError(err)));
 };
 
+export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+export const authSuccess = user => ({
+	type: AUTH_SUCCESS,
+	payload: user
+});
+
 export const AUTH_SUBMIT = 'AUTH_SUBMIT';
 const authSubmit = () => ({
 	type: AUTH_SUBMIT
-});
-
-export const AUTH_SUCCESS = 'AUTH_SUCCESS';
-const authSuccess = user => ({
-	type: AUTH_SUCCESS,
-	payload: user
 });
 
 export const AUTH_ERROR = 'AUTH_ERROR';
