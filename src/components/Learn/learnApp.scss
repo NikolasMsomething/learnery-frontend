@@ -12,27 +12,32 @@
 	@media (max-width: 720px) {
 		h1 {
 			font-size: 1.15rem;
+			display: none;
 		}
 	}
-	@media (max-width: 450px) {
+	@media (max-width: 480px) {
 		h1 {
+			display: none;
 			font-size: 0.9rem;
 		}
 	}
 }
 
 .learnArrow {
+	height: 50px;
+	width: 64px;
 	@media (max-width: 720px) {
-		display: none;
+		height: 30px;
+		width: 44px;
 	}
 }
 
 .learnLogo {
 	max-width: 200px;
 	width: 100%;
-	margin-left: 35px;
+	margin-left: 65px;
 	@media (max-width: 720px) {
-		margin-left: 0;
+		margin-left: 20px;
 	}
 	@media (max-width: 480px) {
 		width: 125px;
@@ -63,6 +68,14 @@
 		cursor: pointer;
 		color: rgb(117, 8, 8);
 	}
+
+	@media (max-width: 720px) {
+		max-width: 50px;
+	}
+
+	@media (max-width: 480px) {
+		max-width: 50px;
+	}
 }
 
 .expanded-on {
@@ -85,6 +98,12 @@
 		color: rgb(117, 8, 8);
 	}
 	cursor: pointer;
+	&:focus {
+		background-color: green;
+	}
+	&:hover {
+		background-color: red;
+	}
 }
 
 .expanded-on:hover {
