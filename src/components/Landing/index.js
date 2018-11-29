@@ -1,18 +1,18 @@
 // Styles
-import './Landing.scss';
-import './Modals.scss';
+import "./Landing.scss";
+import "./Modals.scss";
 // Modules
-import React, { Component } from 'react';
+import React, { Component } from "react";
 // Redux
-import { connect } from 'react-redux';
-import { openRegisterModal, openLoginModal } from '../../controller/actions';
+import { connect } from "react-redux";
+import { openRegisterModal, openLoginModal } from "../../controller/actions";
 // Components
 // import Footer from "../Footer";
-import LoginModal from './Login/LoginModal';
-import RegisterModal from './Register/RegisterModal';
+import LoginModal from "./Login/LoginModal";
+import RegisterModal from "./Register/RegisterModal";
 // Assets
-const LearneryHero = require('../../assets/Learnery_Logo.png');
-const GithubIcon = require('../../assets/GitHub-Mark-64px.png');
+const LearneryHero = require("../../assets/Learnery_Logo.png");
+const GithubIcon = require("../../assets/GitHub-Mark-64px.png");
 
 class Landing extends Component {
 	openRegisterModal = () => this.props.dispatch(openRegisterModal());
@@ -23,7 +23,13 @@ class Landing extends Component {
 		return (
 			<main className="App">
 				<header className="headerBar">
-					<img src={GithubIcon} alt="" />
+					<a
+						rel="noopener noreferrer"
+						target="_blank"
+						href="https://github.com/NikolasMsomething/learnery-frontend"
+					>
+						<img alt="" src={GithubIcon} className="learnArrow" />
+					</a>
 					{/* TODO: Add state to manage being logged in */}
 					<button onClick={this.openLoginModal}>Login</button>
 				</header>
@@ -35,7 +41,7 @@ class Landing extends Component {
 						Will you pass your software <br /> engineering interviews?
 					</p>
 					<p className="registerSecondP">
-						Get ahead of the pack by practicing programming trivia on Learnery!{' '}
+						Get ahead of the pack by practicing programming trivia on Learnery!{" "}
 					</p>
 					{/* TODO: Add state to manage being logged in */}
 					<button onClick={this.openRegisterModal}>Get Started</button>
