@@ -1,16 +1,14 @@
-// THIS FILE WILL CONTAIN THE LOGGED-IN APP
-
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import "./learnApp.scss";
-import { MdExpandMore } from "react-icons/md";
-import { FaPowerOff } from "react-icons/fa";
-import Logo from "../../assets/Logo.png";
-import gLogo from "../../assets/GitHub-Mark-64px.png";
-import CurrentCard from "./CurrentCard";
-import CurrentCardExpanded from "./CurrentCardExp";
-import { toggleExpandCard, handleNext } from "../../controller/actions/";
-import { Redirect } from "react-router-dom";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import './learnApp.scss';
+import { MdExpandMore } from 'react-icons/md';
+import { FaPowerOff } from 'react-icons/fa';
+import Logo from '../../assets/Logo.png';
+import gLogo from '../../assets/GitHub-Mark-64px.png';
+import CurrentCard from './CurrentCard';
+import CurrentCardExpanded from './CurrentCardExp';
+import { toggleExpandCard, handleNext } from '../../controller/actions/';
+import { Redirect } from 'react-router-dom';
 class Learn extends Component {
 	state = {
 		expandedUserInfo: false
@@ -34,37 +32,28 @@ class Learn extends Component {
 
 	render() {
 		let username = this.props.user && this.props.user.username;
-		let expandedUserInfo = "expanded-off";
-
-		if (this.state.expandedUserInfo) {
-			expandedUserInfo = "expanded-on";
-		}
 		return (
 			<>
 				{!this.props.submitting && !this.props.loggedIn && <Redirect to="/" />}
 				<header className="learnAppHeader">
 					<a href="https://github.com/NikolasMsomething/learnery-frontend">
-						<img src={gLogo} className="learnArrow" />
+						<img src={gLogo} className="learnArrow" alt="" />
 					</a>
 					<img src={Logo} className="learnLogo" alt="" />
-					<div className="userBox">
+					{/* Make this a button with no default styling, with the username and icon */}
+					<div onClick={this.toggleUserInfoExpand} className="userBox">
 						<h1>{username}</h1>
-						<MdExpandMore
-							onClick={this.toggleUserInfoExpand}
-							className="expandMore"
-						/>
+						<MdExpandMore className="expandMore" />
 					</div>
 				</header>
 
 				<div className="learnAppMain">
-					<div className={expandedUserInfo}>
+					<div className={this.state.expandedUserInfo ? 'expanded-on' : 'expanded-off'}>
 						<h1>LOGOUT?</h1>
 
 						<FaPowerOff className="powerOff" />
 					</div>
-					{!this.props.currentCard.expanded && (
-						<CurrentCard showAnswerClick={this.showAnswerClick} />
-					)}
+					{!this.props.currentCard.expanded && <CurrentCard showAnswerClick={this.showAnswerClick} />}
 					{this.props.currentCard.expanded && <CurrentCardExpanded />}
 				</div>
 			</>
