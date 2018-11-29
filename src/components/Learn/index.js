@@ -25,7 +25,7 @@ class Learn extends Component {
 
 		return (
 			<>
-				{!this.props.loggedIn && <Redirect to="/" />}
+				{!this.props.submitting && !this.props.loggedIn && <Redirect to="/" />}
 				<header className="learnAppHeader">
 					<img src={gLogo} className="learnArrow" alt="" />
 					<img src={Logo} className="learnLogo" alt="" />
@@ -43,7 +43,8 @@ class Learn extends Component {
 const mapStateToProps = state => ({
 	currentCard: state.learn.currentCard,
 	user: state.auth.user,
-	loggedIn: state.auth.loggedIn
+	loggedIn: state.auth.loggedIn,
+	submitting: state.auth.submitting
 });
 
 export default connect(mapStateToProps)(Learn);
