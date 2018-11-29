@@ -1,24 +1,48 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./CurrentCardExp.scss";
-import { FaArrowDown, FaArrowLeft } from "react-icons/fa";
-function CurrentCardExpanded(props) {
-	return (
-		<>
-			<div className="cardContainer">
-				<div className="expQuestionContainer">
-					<h1>{props.currentCard.question}</h1>
+import { handleAnswerSubmit } from "../../controller/actions";
+import { FaArrowDown, FaArrowLeft, FaRProject } from "react-icons/fa";
+import { toggleExpandCard } from "../../controller/actions/";
+import cache from "../../controller/api/cache";
+class CurrentCardExpanded extends Component {
+	// state = {
+	// 	Yikes: "Yikes",
+	// 	"Got it": "Got it"
+	// }
+	sendAnswerYikes = () => {
+		this.props.dispatch(
+			handleAnswerSubmit({
+				confidence: "0"
+			})
+		);
+	};
+	sendAnswerGotIt = () => {
+		this.props.dispatch(
+			handleAnswerSubmit({
+				confidence: "1"
+			})
+		);
+	};
+
+	render() {
+		return (
+			<>
+				<div className="cardContainer">
+					<div className="expQuestionContainer">
+						<h1>{this.props.currentCard.question}</h1>
+					</div>
+					<div className="answerContainer">
+						<h1>{this.props.currentCard.answer}</h1>
+					</div>
+					<div className="answerBtnContainer">
+						<button onClick={this.sendAnswerYikes}>Yikes</button>
+						<button onClick={this.sendAnswerGotIt}>Got it</button>
+					</div>
 				</div>
-				<div className="answerContainer">
-					<h1>{props.currentCard.answer}</h1>
-				</div>
-				<div className="answerBtnContainer">
-					<button>Yikes</button>
-					<button>Got it</button>
-				</div>
-			</div>
-		</>
-	);
+			</>
+		);
+	}
 }
 
 const mapStateToProps = state => {

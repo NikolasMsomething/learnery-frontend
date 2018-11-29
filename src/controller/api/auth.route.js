@@ -1,6 +1,6 @@
-import cache from './cache';
-import { BACKEND_URL, goFetch } from './config';
-const BASE_URL = BACKEND_URL + '/auth';
+import cache from "./cache";
+import { BACKEND_URL, goFetch } from "./config";
+const BASE_URL = BACKEND_URL + "/auth";
 
 /**
  * Registers a user with the backend server.
@@ -10,8 +10,13 @@ const BASE_URL = BACKEND_URL + '/auth';
  * @throws if any fields are missing
  */
 const register = credentials =>
-	goFetch(BASE_URL + '/register', { method: 'POST', body: credentials, auth: false }).then(res => {
+	goFetch(BASE_URL + "/register", {
+		method: "POST",
+		body: credentials,
+		auth: false
+	}).then(res => {
 		cache.authToken.save(res.authToken);
+		console.log(res, "line 15");
 		return res;
 	});
 
@@ -22,7 +27,11 @@ const register = credentials =>
  * @throws if user is not properly authenticated
  */
 const login = credentials =>
-	goFetch(BASE_URL + '/login', { method: 'POST', body: credentials, auth: false }).then(res => {
+	goFetch(BASE_URL + "/login", {
+		method: "POST",
+		body: credentials,
+		auth: false
+	}).then(res => {
 		cache.authToken.save(res.authToken);
 		return res;
 	});
@@ -32,7 +41,7 @@ const login = credentials =>
  * @returns {Boolean} true/false if auth succeeded and token is available for queries.
  */
 const refresh = () =>
-	goFetch(BASE_URL + '/refresh', { method: 'POST' }).then(res => {
+	goFetch(BASE_URL + "/refresh", { method: "POST" }).then(res => {
 		cache.authToken.save(res.authToken);
 		return res;
 	});
