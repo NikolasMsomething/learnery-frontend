@@ -1,18 +1,18 @@
 import {
 	TOGGLE_EXPAND_CARD,
-	NEW_CARD,
+	// NEW_CARD,
 	ANSWER_SUBMIT,
 	ANSWER_SUCCESS,
 	ANSWER_ERROR,
 	NEW_CARD_SUCCESS,
 	NEW_CARD_SUBMIT,
 	NEW_CARD_ERROR
-} from "../actions";
+} from '../actions';
 
 const initialState = {
 	currentCard: {
-		question: "",
-		answer: "",
+		question: '',
+		answer: '',
 		expanded: false
 	},
 	submitting: false,

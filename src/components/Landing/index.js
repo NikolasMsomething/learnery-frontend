@@ -19,7 +19,7 @@ class Landing extends Component {
 	openLoginModal = () => this.props.dispatch(openLoginModal());
 
 	render() {
-		const { showLoginModal, showRegisterModal, loggedIn } = this.props;
+		const { showLoginModal, showRegisterModal } = this.props;
 		return (
 			<main className="App">
 				<header className="headerBar">

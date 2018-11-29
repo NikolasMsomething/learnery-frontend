@@ -12,7 +12,8 @@ const authReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case AUTH_SUBMIT: {
 			return Object.assign({}, state, {
-				submitting: true
+				submitting: true,
+				error: null
 			});
 		}
 		case AUTH_SUCCESS: {
@@ -20,6 +21,7 @@ const authReducer = (state = initialState, action) => {
 			delete action.payload.authToken;
 			return Object.assign({}, state, {
 				submitting: false,
+				error: null,
 				user: action.payload,
 				loggedIn: true,
 				authToken

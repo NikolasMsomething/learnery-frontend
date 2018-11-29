@@ -1,7 +1,7 @@
-import React from "react";
-import { connect } from "react-redux";
-import "./CurrentCard.scss";
-import { FaArrowDown, FaArrowLeft } from "react-icons/fa";
+import React from 'react';
+import { connect } from 'react-redux';
+import './CurrentCard.scss';
+import { FaArrowDown } from 'react-icons/fa';
 function CurrentCard(props) {
 	return (
 		<>
@@ -19,7 +19,6 @@ function CurrentCard(props) {
 }
 
 const mapStateToProps = state => {
-	console.log(state);
 	return { currentCard: state.learn.currentCard };
 };
 

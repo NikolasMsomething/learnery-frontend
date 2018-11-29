@@ -1,10 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import "./CurrentCardExp.scss";
-import { handleAnswerSubmit } from "../../controller/actions";
-import { FaArrowDown, FaArrowLeft, FaRProject } from "react-icons/fa";
-import { toggleExpandCard } from "../../controller/actions/";
-import cache from "../../controller/api/cache";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import './CurrentCardExp.scss';
+import { handleAnswerSubmit } from '../../controller/actions';
 class CurrentCardExpanded extends Component {
 	// state = {
 	// 	Yikes: "Yikes",
@@ -13,14 +10,14 @@ class CurrentCardExpanded extends Component {
 	sendAnswerYikes = () => {
 		this.props.dispatch(
 			handleAnswerSubmit({
-				confidence: "0"
+				confidence: '0'
 			})
 		);
 	};
 	sendAnswerGotIt = () => {
 		this.props.dispatch(
 			handleAnswerSubmit({
-				confidence: "1"
+				confidence: '1'
 			})
 		);
 	};
@@ -45,9 +42,6 @@ class CurrentCardExpanded extends Component {
 	}
 }
 
-const mapStateToProps = state => {
-	console.log(state);
-	return { currentCard: state.learn.currentCard };
-};
+const mapStateToProps = state => ({ currentCard: state.learn.currentCard });
 
 export default connect(mapStateToProps)(CurrentCardExpanded);
