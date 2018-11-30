@@ -38,13 +38,34 @@ class Stats extends Component {
 					<section className="stats-mastery">
 						<h2 className="stats-subheading">Mastery</h2>
 						<div className="stats-mastery-chart">
-							<div className="stats-mastery-chart__unseen" />
-							<div className="stats-mastery-chart__learning" />
-							<div className="stats-mastery-chart__mastered" />
+							<div className="stats-mastery-chart-bar__container">
+								<div className="stats-mastery-chart-bar stats-mastery-chart-bar__unseen">
+									<p className="stats-mastery-chart-bar__percentage">40%</p>
+								</div>
+								<p className="stats-mastery-chart-text">New</p>
+							</div>
+							<div className="stats-mastery-chart-bar__container">
+								<div className="stats-mastery-chart-bar stats-mastery-chart-bar__learning">
+									<p className="stats-mastery-chart-bar__percentage">60%</p>
+								</div>
+								<p className="stats-mastery-chart-text">Learning</p>
+							</div>
+							<div className="stats-mastery-chart-bar__container">
+								<div className="stats-mastery-chart-bar stats-mastery-chart-bar__mastered">
+									<p className="stats-mastery-chart-bar__percentage">10%</p>
+								</div>
+								<p className="stats-mastery-chart-text">Mastered</p>
+							</div>
 						</div>
 					</section>
 					<section className="stats-fun-facts">
 						<h2 className="stats-subheading">Fun Facts</h2>
+						<div className="stats-fun-facts-fact">
+							<p>
+								<span className="stats-fun-facts-fact__title">Longest streak:</span>{' '}
+								<span className="stats-fun-facts-fact__num">15</span> cards correct
+							</p>
+						</div>
 					</section>
 				</main>
 			</div>
