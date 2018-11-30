@@ -1,7 +1,7 @@
 import { STATS_SUBMIT, STATS_GET_SUCCESS, STATS_GET_ERROR } from '../actions';
 
 const initialState = {
-	submitting: false,
+	submitting: true,
 	error: null,
 	userStats: null,
 	cardStats: null
