@@ -1,4 +1,4 @@
-import { AUTH_SUBMIT, AUTH_SUCCESS, AUTH_ERROR } from '../actions';
+import { AUTH_SUBMIT, AUTH_SUCCESS, AUTH_ERROR, LOG_OUT } from "../actions";
 
 const initialState = {
 	authToken: null,
@@ -29,6 +29,9 @@ const authReducer = (state = initialState, action) => {
 		}
 		case AUTH_ERROR: {
 			return Object.assign({}, initialState, { error: action.payload });
+		}
+		case LOG_OUT: {
+			return Object.assign({}, initialState);
 		}
 		default:
 			return state;

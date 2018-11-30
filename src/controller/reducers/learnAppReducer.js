@@ -6,13 +6,14 @@ import {
 	ANSWER_ERROR,
 	NEW_CARD_SUCCESS,
 	NEW_CARD_SUBMIT,
-	NEW_CARD_ERROR
-} from '../actions';
+	NEW_CARD_ERROR,
+	LOG_OUT
+} from "../actions";
 
 const initialState = {
 	currentCard: {
-		question: '',
-		answer: '',
+		question: "",
+		answer: "",
 		expanded: false
 	},
 	submitting: false,
@@ -68,6 +69,9 @@ const learnAppReducer = (state = initialState, action) => {
 		}
 		case ANSWER_ERROR: {
 			return Object.assign({}, initialState, { error: action.value });
+		}
+		case LOG_OUT: {
+			return Object.assign({}, initialState);
 		}
 
 		default:
