@@ -56,8 +56,8 @@ class Stats extends Component {
 		// Redirect if user not authenticated
 		if (!this.props.loggedIn) return <Redirect to="/" />;
 
-		const { cardsAnswered, maxStreak, streak } = this.props.userStats;
-		const { seen, unseen, learning, mastered } = this.processCardStats();
+		// const { cardsAnswered, maxStreak, streak } = this.props.userStats;
+		// const { seen, unseen, learning, mastered } = this.processCardStats();
 		return (
 			<div className="stats__container">
 				<main className="stats">
