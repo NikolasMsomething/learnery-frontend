@@ -1,7 +1,11 @@
-import { OPEN_LOGIN_MODAL, OPEN_REGISTER_MODAL, CLOSE_MODALS } from '../actions';
+import {
+	OPEN_LOGIN_MODAL,
+	OPEN_REGISTER_MODAL,
+	CLOSE_MODALS,
+	LOG_OUT
+} from "../actions";
 
 const initialState = {
-	name: 'nick',
 	showLoginModal: false,
 	showRegisterModal: false
 };
@@ -24,6 +28,9 @@ const landingReducer = (state = initialState, action) => {
 				showRegisterModal: false,
 				showLoginModal: false
 			});
+		}
+		case LOG_OUT: {
+			return Object.assign({}, initialState);
 		}
 		default:
 			return state;

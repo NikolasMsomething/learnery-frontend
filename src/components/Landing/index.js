@@ -31,7 +31,9 @@ class Landing extends Component {
 						<img alt="" src={GithubIcon} className="learnArrow" />
 					</a>
 					{/* TODO: Add state to manage being logged in */}
-					<button onClick={this.openLoginModal}>Login</button>
+					<button className="yellow-button" onClick={this.openLoginModal}>
+						<p>Login</p>
+					</button>
 				</header>
 				{showLoginModal && <LoginModal />}
 				{showRegisterModal && <RegisterModal />}
@@ -44,7 +46,10 @@ class Landing extends Component {
 						Get ahead of the pack by practicing programming trivia on Learnery!{" "}
 					</p>
 					{/* TODO: Add state to manage being logged in */}
-					<button onClick={this.openRegisterModal}>Get Started</button>
+
+					<button className="green-button" onClick={this.openRegisterModal}>
+						<p>Get Started!</p>
+					</button>
 				</section>
 				{/* <Footer /> */}
 			</main>
