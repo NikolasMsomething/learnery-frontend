@@ -16,6 +16,7 @@ const statsReducer = (state = initialState, action) => {
 			});
 		}
 		case STATS_GET_SUCCESS: {
+			console.log(action.payload);
 			return Object.assign({}, state, {
 				submitting: false,
 				error: null,

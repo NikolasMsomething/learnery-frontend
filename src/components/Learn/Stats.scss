@@ -1,57 +1,104 @@
-.statsMain {
-	background-color: white;
-	width: 100%;
-	height: 100%;
+$dark-grey: #4b4b4b;
+$grey: #b2b2b2;
+$green: #3ec13c;
+$dark-green: #143413;
+
+$breakpoint: 768px;
+
+.stats {
+	max-width: 768px;
+	margin: 32px auto;
+	@media (max-width: 1024px) {
+		margin: 16px 3%;
+	}
+}
+
+.stats > section {
+	margin-bottom: 32px;
+}
+
+.stats-heading {
+	font-family: 'Permanent Marker', cursive;
+	text-align: center;
+	margin: 48px 0;
+	font-size: 56px;
+	@media (max-width: 768px) {
+		font-size: 40px;
+		margin: 32px 2%;
+	}
+}
+
+.stats-subheading {
+	font-family: 'Permanent Marker', cursive;
+	margin-bottom: 32px;
+	font-size: 40px;
+	@media (max-width: 768px) {
+		font-size: 28px;
+	}
+}
+
+.stats p {
+	font-family: 'Roboto Mono', monospace;
+	font-size: 32px;
+	@media (max-width: 768px) {
+		font-size: 24px;
+	}
+}
+
+.stats-progress {
+	max-width: 768px;
+}
+
+.stats-progress-bar {
+	background: $grey;
+	// size
+	height: 64px;
+	max-width: 768px;
+	// positioning
 	display: flex;
-	flex-direction: column;
-	padding: 2%;
-	align-items: center;
-	.progress {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		width: 80%;
-		font-family: Permanent Marker;
-		font-size: 2rem;
+	@media screen and (max-width: 768px) {
+		margin-right: 5%;
 	}
+	// Borders, shadows
+	border-radius: 20px;
+	box-shadow: 0px 8px 0px $dark-grey;
+	// Inner progress bar styles
+	&__seen {
+		background: $green;
+		width: 50%; // TEMP
+		height: 100%;
+		border-radius: 20px 0 0 20px;
+	}
+	&__unseen {
+		background: $grey;
+		width: 50%; // TEMP
+		height: 100%;
+		border-radius: 0 20px 20px 0;
+	}
+}
 
-	.progress-bar-words {
-		position: relative;
-		display: inline-block;
-		bottom: 0;
-	}
+.stats-progress-bar-text {
+	margin-top: 24px;
+	padding: 0 8px;
+	display: flex;
+	justify-content: space-between;
 
-	.outer {
-		width: 60%;
+	@media screen and (max-width: 768px) {
+		margin-right: 5%;
 	}
-	.progress-progress-bar {
-		display: inline-block;
-		width: 100%;
-		max-width: 60%;
-		height: 100px;
-		border-radius: 25px;
-		background-color: green;
-		z-index: 99;
+}
+
+.stats-mastery {
+	max-width: 768px;
+	background: pink;
+}
+
+.stats-mastery-chart {
+	height: 8000px;
+	&__unseen {
 	}
-	.progress-unprogress-bar {
-		width: 100%;
-		max-width: 60%;
-		height: 100px;
-		border-radius: 25px;
-		background-color: grey;
-		position: absolute;
-		order: 1;
+	&__learning {
 	}
-	.mastery {
-		flex: 1;
-		width: 80%;
-		font-family: Permanent Marker;
-		font-size: 2rem;
-	}
-	.fun-facts {
-		flex: 1;
-		width: 80%;
-		font-family: Permanent Marker;
-		font-size: 2rem;
+	&__mastered {
 	}
 }
