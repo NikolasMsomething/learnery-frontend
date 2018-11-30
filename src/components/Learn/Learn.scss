@@ -9,6 +9,10 @@
 		font-size: 1.3rem;
 	}
 
+	a:visited {
+		color: black;
+	}
+
 	@media (max-width: 720px) {
 		h1 {
 			font-size: 1.15rem;
@@ -50,7 +54,8 @@
 }
 
 .learnArrow {
-	width: 64px;
+	width: 45px;
+	height: 45px;
 	@media (max-width: 720px) {
 		height: 30px;
 		width: 44px;
