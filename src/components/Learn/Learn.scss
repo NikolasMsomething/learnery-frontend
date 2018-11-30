@@ -46,7 +46,7 @@
 
 .learnAppMain {
 	width: 100%;
-	height: 93%;
+	height: 100%;
 	background-color: #ffca32;
 	overflow: hidden;
 	p {
@@ -114,4 +114,11 @@
 
 .expanded-off {
 	display: none;
+}
+
+.learnApp-loading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
 }

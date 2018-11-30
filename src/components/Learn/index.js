@@ -1,26 +1,21 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import "./learnApp.scss";
-import { MdExpandMore } from "react-icons/md";
-import { FaPowerOff, FaRegChartBar } from "react-icons/fa";
-import Logo from "../../assets/Logo.png";
-import gLogo from "../../assets/GitHub-Mark-64px.png";
-import CurrentCard from "./CurrentCard";
-import CurrentCardExpanded from "./CurrentCardExp";
-import { toggleExpandCard, handleNext } from "../../controller/actions/";
-import { Redirect } from "react-router-dom";
+import './Learn.scss';
+import React, { Component } from 'react';
+import { Redirect, Route } from 'react-router-dom';
+// Redux
+import { connect } from 'react-redux';
+// Components
+import Loading from '../common/Loading';
+import Card from './Card';
+import Stats from './Stats';
+// Assets
+import { MdExpandMore } from 'react-icons/md';
+import { FaPowerOff, FaRegChartBar } from 'react-icons/fa';
+import Logo from '../../assets/Logo.png';
+
 class Learn extends Component {
 	state = {
 		expandedUserInfo: false
 	};
-
-	// logOut = React.createRef();
-
-	componentDidMount() {
-		if (!this.props.currentCard.question) {
-			this.props.dispatch(handleNext());
-		}
-	}
 
 	toggleUserInfoExpand = () => {
 		this.setState(
@@ -36,40 +31,38 @@ class Learn extends Component {
 		);
 	};
 
-	showAnswerClick = () => {
-		this.props.dispatch(toggleExpandCard());
-	};
-
 	render() {
-		let username = this.props.user && this.props.user.username;
+		// Render loading spinner while submitting
+		if (this.props.submitting)
+			return (
+				<div className="learnAppMain">
+					<Loading className="learnApp-loading" />
+				</div>
+			);
+		// Redirect if user not authenticated
+		if (!this.props.loggedIn) return <Redirect to="/" />;
+
 		return (
 			<>
-				{!this.props.submitting && !this.props.loggedIn && <Redirect to="/" />}
 				<header className="learnAppHeader">
 					<FaRegChartBar className="learnArrow" alt="" />
 					<img src={Logo} className="learnLogo" alt="" />
 					{/* Make this a button with no default styling, with the username and icon */}
 					<div onClick={this.toggleUserInfoExpand} className="userBox">
-						<h1>{username}</h1>
+						<h1>{this.props.user.username}</h1>
 						<MdExpandMore className="expandMore" />
 					</div>
 				</header>
-
+				<div
+					ref={element => (this.logOut = element)}
+					className={this.state.expandedUserInfo ? 'expanded-on' : 'expanded-off'}
+				>
+					<h1>LOGOUT?</h1>
+					<FaPowerOff className="powerOff" />
+				</div>
 				<div className="learnAppMain">
-					<div
-						ref={element => (this.logOut = element)}
-						className={
-							this.state.expandedUserInfo ? "expanded-on" : "expanded-off"
-						}
-					>
-						<h1>LOGOUT?</h1>
-
-						<FaPowerOff className="powerOff" />
-					</div>
-					{!this.props.currentCard.expanded && (
-						<CurrentCard showAnswerClick={this.showAnswerClick} />
-					)}
-					{this.props.currentCard.expanded && <CurrentCardExpanded />}
+					<Route exact path="/learn" component={Card} />
+					<Route exact path="/learn/stats" component={Stats} />
 				</div>
 			</>
 		);
