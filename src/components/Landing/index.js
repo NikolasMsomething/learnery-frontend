@@ -13,6 +13,7 @@ import RegisterModal from "./Register/RegisterModal";
 // Assets
 const LearneryHero = require("../../assets/Learnery_Logo.png");
 const GithubIcon = require("../../assets/GitHub-Mark-64px.png");
+const SVG = require("../../assets/buttons-v2.svg");
 
 class Landing extends Component {
 	openRegisterModal = () => this.props.dispatch(openRegisterModal());
@@ -44,7 +45,10 @@ class Landing extends Component {
 						Get ahead of the pack by practicing programming trivia on Learnery!{" "}
 					</p>
 					{/* TODO: Add state to manage being logged in */}
-					<button onClick={this.openRegisterModal}>Get Started</button>
+
+					<button className="getStarted" onClick={this.openRegisterModal}>
+						Get Started
+					</button>
 				</section>
 				{/* <Footer /> */}
 			</main>

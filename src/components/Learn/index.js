@@ -1,16 +1,16 @@
-import './Learn.scss';
-import React, { Component } from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import "./Learn.scss";
+import React, { Component } from "react";
+import { Redirect, Route } from "react-router-dom";
 // Redux
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 // Components
-import Loading from '../common/Loading';
-import Card from './Card';
-import Stats from './Stats';
+import Loading from "../common/Loading";
+import Card from "./Card";
+import Stats from "./Stats";
 // Assets
-import { MdExpandMore } from 'react-icons/md';
-import { FaPowerOff, FaRegChartBar } from 'react-icons/fa';
-import Logo from '../../assets/Logo.png';
+import { MdExpandMore } from "react-icons/md";
+import { FaPowerOff, FaRegChartBar } from "react-icons/fa";
+import Logo from "../../assets/Logo.png";
 
 class Learn extends Component {
 	state = {
@@ -33,6 +33,7 @@ class Learn extends Component {
 
 	render() {
 		// Render loading spinner while submitting
+
 		if (this.props.submitting)
 			return (
 				<div className="learnAppMain">
@@ -44,7 +45,13 @@ class Learn extends Component {
 
 		return (
 			<>
-				<header className="learnAppHeader">
+				<header
+					className={
+						this.props.location.pathname === "/learn/stats"
+							? "learnAppStats"
+							: "learnAppHeader"
+					}
+				>
 					<FaRegChartBar className="learnArrow" alt="" />
 					<img src={Logo} className="learnLogo" alt="" />
 					{/* Make this a button with no default styling, with the username and icon */}
@@ -55,7 +62,9 @@ class Learn extends Component {
 				</header>
 				<div
 					ref={element => (this.logOut = element)}
-					className={this.state.expandedUserInfo ? 'expanded-on' : 'expanded-off'}
+					className={
+						this.state.expandedUserInfo ? "expanded-on" : "expanded-off"
+					}
 				>
 					<h1>LOGOUT?</h1>
 					<FaPowerOff className="powerOff" />
