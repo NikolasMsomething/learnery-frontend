@@ -1,14 +1,15 @@
 // import './Register.scss';
-import React, { Component } from 'react';
-import Modal from 'react-modal';
-import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { closeModals } from '../../../controller/actions';
-import RegisterForm from './RegisterForm';
+import React, { Component } from "react";
+import Modal from "react-modal";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { closeModals } from "../../../controller/actions";
+import RegisterForm from "./RegisterForm";
+import { IoIosCloseCircle } from "react-icons/io";
 
 class RegisterModal extends Component {
 	render() {
-		Modal.setAppElement('main');
+		Modal.setAppElement("main");
 		return (
 			<div>
 				{this.props.loggedIn && <Redirect to="/learn" />}
@@ -23,26 +24,33 @@ class RegisterModal extends Component {
 				>
 					<h2
 						style={{
-							paddingTop: 2 + '%',
-							marginBottom: '3rem',
-							fontFamily: 'Permanent Marker',
-							fontSize: '2.5rem',
-							paddingBottom: '3px',
-							borderBottom: '1px black solid'
+							paddingTop: 2 + "%",
+							marginBottom: "3rem",
+							fontFamily: "Permanent Marker",
+							fontSize: "2.5rem",
+							paddingBottom: "3px",
+							borderBottom: "1px black solid"
 						}}
 					>
 						Register
 					</h2>
 
 					<RegisterForm />
-					<button
-						style={{ position: 'absolute', top: 3, right: 3 }}
+					<IoIosCloseCircle
+						className="close-circle"
+						style={{
+							position: "absolute",
+							top: 3,
+							right: 3,
+							height: "25px",
+							width: "25px"
+						}}
 						onClick={() => {
 							this.props.dispatch(closeModals());
 						}}
 					>
 						close
-					</button>
+					</IoIosCloseCircle>
 				</Modal>
 			</div>
 		);
@@ -51,24 +59,24 @@ class RegisterModal extends Component {
 
 const customStyles = {
 	content: {
-		top: '50%',
-		left: '50%',
-		right: 'auto',
-		bottom: 'auto',
-		marginRight: '-50%',
-		transform: 'translate(-50%, -50%)',
-		alignItems: 'center',
-		display: 'flex',
-		flexDirection: 'column',
-		height: '538px',
-		padding: 1 + '%',
-		width: 100 + '%',
-		maxWidth: '400px',
-		justifyContent: 'center',
-		backgroundColor: 'var(--lnGold)',
-		border: 'solid 3px black',
+		top: "50%",
+		left: "50%",
+		right: "auto",
+		bottom: "auto",
+		marginRight: "-50%",
+		transform: "translate(-50%, -50%)",
+		alignItems: "center",
+		display: "flex",
+		flexDirection: "column",
+		height: "538px",
+		padding: 1 + "%",
+		width: 100 + "%",
+		maxWidth: "400px",
+		justifyContent: "center",
+		backgroundColor: "var(--lnGold)",
+		border: "solid 3px black",
 		overlay: {
-			backgroundColor: 'blue'
+			backgroundColor: "blue"
 		}
 	}
 };
