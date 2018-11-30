@@ -2,6 +2,7 @@ import React from "react";
 import Modal from "react-modal";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { IoIosCloseCircle } from "react-icons/io";
 import { closeModals } from "../../../controller/actions";
 import LoginForm from "./LoginForm";
 
@@ -55,14 +56,21 @@ function LoginModal(props) {
 				>
 					Login
 				</h2>
-				<button
-					style={{ position: "absolute", top: 3, right: 3 }}
+				<IoIosCloseCircle
+					className="close-circle"
+					style={{
+						position: "absolute",
+						top: 3,
+						right: 3,
+						height: "25px",
+						width: "25px"
+					}}
 					onClick={() => {
 						props.dispatch(closeModals());
 					}}
 				>
 					close
-				</button>
+				</IoIosCloseCircle>
 
 				<LoginForm />
 			</Modal>

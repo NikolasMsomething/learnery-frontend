@@ -13,7 +13,6 @@ import RegisterModal from "./Register/RegisterModal";
 // Assets
 const LearneryHero = require("../../assets/Learnery_Logo.png");
 const GithubIcon = require("../../assets/GitHub-Mark-64px.png");
-const SVG = require("../../assets/buttons-v2.svg");
 
 class Landing extends Component {
 	openRegisterModal = () => this.props.dispatch(openRegisterModal());
@@ -32,7 +31,9 @@ class Landing extends Component {
 						<img alt="" src={GithubIcon} className="learnArrow" />
 					</a>
 					{/* TODO: Add state to manage being logged in */}
-					<button onClick={this.openLoginModal}>Login</button>
+					<button className="yellow-button" onClick={this.openLoginModal}>
+						<p>Login</p>
+					</button>
 				</header>
 				{showLoginModal && <LoginModal />}
 				{showRegisterModal && <RegisterModal />}
@@ -46,8 +47,8 @@ class Landing extends Component {
 					</p>
 					{/* TODO: Add state to manage being logged in */}
 
-					<button className="getStarted" onClick={this.openRegisterModal}>
-						Get Started
+					<button className="green-button" onClick={this.openRegisterModal}>
+						<p>Get Started!</p>
 					</button>
 				</section>
 				{/* <Footer /> */}

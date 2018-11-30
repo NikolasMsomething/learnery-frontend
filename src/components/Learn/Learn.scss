@@ -86,6 +86,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+	cursor: pointer;
 	.expandMore {
 		height: 22px;
 		width: 22px;
@@ -120,21 +121,16 @@
 		font-family: Roboto Mono;
 		font-size: 1.2rem;
 	}
-	.powerOff:hover {
-		color: rgb(117, 8, 8);
+	.powerOff {
+		color: rgb(0, 0, 0);
 	}
 	cursor: pointer;
 	&:focus {
 		background-color: green;
 	}
 	&:hover {
-		background-color: red;
-	}
-}
-
-.expanded-on:hover {
-	.powerOff {
-		color: rgb(117, 8, 8);
+		background-color: var(--lnSalmon);
+		color: white;
 	}
 }
 

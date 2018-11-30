@@ -1,10 +1,14 @@
-import './Card.scss';
-import React, { Component } from 'react';
+import "./Card.scss";
+import React, { Component } from "react";
 // Redux
-import { connect } from 'react-redux';
-import { toggleExpandCard, handleNext, handleAnswerSubmit } from '../../controller/actions/';
+import { connect } from "react-redux";
+import {
+	toggleExpandCard,
+	handleNext,
+	handleAnswerSubmit
+} from "../../controller/actions/";
 // Assets
-import { FaArrowDown } from 'react-icons/fa';
+import { FaArrowDown } from "react-icons/fa";
 
 class Card extends Component {
 	showAnswerClick = () => {
@@ -20,14 +24,14 @@ class Card extends Component {
 	sendAnswerYikes = () => {
 		this.props.dispatch(
 			handleAnswerSubmit({
-				confidence: '0'
+				confidence: "0"
 			})
 		);
 	};
 	sendAnswerGotIt = () => {
 		this.props.dispatch(
 			handleAnswerSubmit({
-				confidence: '1'
+				confidence: "1"
 			})
 		);
 	};
@@ -50,13 +54,21 @@ class Card extends Component {
 				<div className="cardContainer">
 					<div className="expQuestionContainer">
 						<h1>{this.props.currentCard.question}</h1>
+						<div className="border-bottom" />
 					</div>
 					<div className="answerContainer">
 						<h1>{this.props.currentCard.answer}</h1>
 					</div>
 					<div className="answerBtnContainer">
-						<button onClick={this.sendAnswerYikes}>Yikes</button>
-						<button onClick={this.sendAnswerGotIt}>Got it</button>
+						<button className="learn-red-button" onClick={this.sendAnswerYikes}>
+							<p>Yikes</p>
+						</button>
+						<button
+							className="learn-green-button"
+							onClick={this.sendAnswerGotIt}
+						>
+							<p>Got it</p>
+						</button>
 					</div>
 				</div>
 			);
