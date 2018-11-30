@@ -16,8 +16,9 @@
 	width: 100%;
 	text-align: center;
 	padding: 0 2%;
+
 	h1 {
-		font-size: 4.7rem;
+		font-size: 3.7rem;
 		font-family: Permanent Marker;
 	}
 
@@ -47,6 +48,7 @@
 	flex-direction: column;
 	align-items: center;
 	padding: 0 2%;
+	margin-top: 2%;
 	h2 {
 		flex: 1;
 		font-family: Roboto Mono;
@@ -102,7 +104,7 @@
 	max-width: 1000px;
 	width: 100%;
 	text-align: center;
-
+	padding: 2%;
 	.border-bottom {
 		flex: 1;
 		width: 80%;
@@ -111,7 +113,7 @@
 
 	h1 {
 		flex: 1;
-		font-size: 4.7rem;
+		font-size: 3.5rem;
 		font-family: Permanent Marker;
 		margin-bottom: 5%;
 	}
@@ -121,7 +123,7 @@
 		margin-left: 2%;
 		margin-right: 2%;
 		h1 {
-			font-size: 3rem;
+			font-size: 2.5rem;
 		}
 	}
 
@@ -140,15 +142,13 @@
 
 .answerContainer {
 	font-family: Roboto Mono;
-	font-size: 3rem;
-
-	padding-top: 3%;
-	padding-bottom: 3%;
-
+	font-size: 2rem;
+	max-width: 800px;
+	margin-bottom: 4%;
+	padding: 2%;
+	text-align: center;
 	@media (max-width: 720px) {
-		font-size: 2rem;
-		padding-top: 10%;
-		padding-bottom: 10%;
+		font-size: 1rem;
 	}
 
 	@media (max-width: 450px) {
@@ -185,6 +185,7 @@
 	background-color: inherit;
 	background-repeat: no-repeat;
 	outline: none;
+	color: white;
 
 	p {
 		margin-top: -14px;
@@ -221,7 +222,7 @@
 	background-repeat: no-repeat;
 	outline: none;
 	background-position: 0px -72px;
-
+	color: white;
 	p {
 		margin-top: -14px;
 		font-size: 18px;

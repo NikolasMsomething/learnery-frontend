@@ -34,8 +34,8 @@ const learnAppReducer = (state = initialState, action) => {
 			return Object.assign({}, state, {
 				currentCard: {
 					...state.currentCard,
-					question: action.value.question,
-					answer: action.value.answer,
+					question: action.value.card.question,
+					answer: action.value.card.answer,
 					expanded: false
 				}
 			});
@@ -56,13 +56,12 @@ const learnAppReducer = (state = initialState, action) => {
 			});
 		}
 		case ANSWER_SUCCESS: {
-			let { question, answer } = action.value;
 			return Object.assign({}, state, {
 				submitting: false,
 				currentCard: {
 					...state.currentCard,
-					question: question,
-					answer: answer,
+					question: action.value.flashcard.question,
+					answer: action.value.flashcard.answer,
 					expanded: false
 				}
 			});
