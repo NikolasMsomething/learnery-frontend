@@ -1,4 +1,4 @@
-# Swappuyo
+# Learnery
 
 Welcome to Learnery!
 [Click here to see a live version!](https://learnery.netlify.com/)
@@ -19,11 +19,11 @@ The Solution:
 
 ![example](https://i.imgur.com/rjJ367C.png)
 
-> Student's then decide whether they need more time to study the card or are feeling confident.
+> Students then decide whether they need more time to study the card or are feeling confident.
 
 ![example2](https://i.imgur.com/1x3otnk.png)
 
-> Student's can also track their progress and mastery statistics!
+> Students can also track their progress and mastery statistics!
 
 ![example3](https://i.imgur.com/uz3trbX.png)
 
