@@ -38,8 +38,7 @@ Learnery uses a number of open source projects in conjuction:
 - [Node.js](https://nodejs.org/en/) - Evented I/O for the backend!
 - [Express](https://expressjs.com/) - Fast node.js network app framework!
 - [PostgreSQL](https://www.postgresql.org/) - Relational server side database!
-- [Sequelize](http://docs.sequelizejs.com/)
-- ORM used to query databases!
+- [Sequelize](http://docs.sequelizejs.com/) - ORM used to query databases!
 
 ### Installation
 
