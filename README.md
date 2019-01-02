@@ -5,9 +5,9 @@ Welcome to Learnery!
 
 Test Learnery account:
 
-|          | Username |    Password |
-| -------- | :------: | ----------: |
-| Learnery | test123  | password123 |
+|          |  Username  |    Password |
+| -------- | :--------: | ----------: |
+| Learnery | niktest123 | password123 |
 
 The Problem:
 
