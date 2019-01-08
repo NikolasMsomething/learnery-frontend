@@ -1,13 +1,5 @@
 const validEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
-export const validateFirstName = (name) => {
-  if (!name.trim()) throw new Error('Please enter your name');
-  if (name.length < 2) throw new Error('Your name must be a little longer');
-  if (name.length > 32)
-    throw new Error('Have a nickname? The max name length is 32 characters');
-  if (!/^\D+$/.test(name)) throw new Error("Names can't have numbers, silly! ");
-};
-
 export const validateUsername = (username) => {
   if (username.length < 2) {
     throw new Error('Your username needs to be a little longer');

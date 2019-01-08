@@ -30,7 +30,6 @@ class Learn extends Component {
 			() => {
 				if (this.state.expandedUserInfo) {
 					this.logOut.focus();
-					console.log(this.logOut);
 				}
 			}
 		);
