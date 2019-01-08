@@ -87,14 +87,14 @@ class LoginForm extends Component {
         >
           <p>{authError || warning}</p>
         </div>
-        <label forHtml="username">Username</label>
+        <label htmlFor="username">Username</label>
         <input
           value={this.state.username.input}
           onChange={this.manageUsernameInput}
           type="text"
           name="username"
         />
-        <label forHtml="username">Password</label>
+        <label htmlFor="username">Password</label>
         <input
           value={this.state.password.input}
           onChange={this.managePasswordInput}
