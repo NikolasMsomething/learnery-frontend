@@ -1,5 +1,6 @@
 import cache from './cache';
-export const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8080';
+export const BACKEND_URL =
+  process.env.REACT_APP_BACKEND_URL || 'http://localhost:8080';
 
 /**
  * Normalizes the behavior of fetch calls to RESTful APIs that return JSON.
@@ -10,45 +11,56 @@ export const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhos
  * @throws if response is not a 200-level response (i.e. fetch's res.ok is false).
  */
 export function goFetch(path, config = { method: 'get' }, params = null) {
-	const url = new URL(path);
-	if (params !== null) Object.entries(params).forEach(([k, v]) => url.searchParams.append(k, v));
-	// set sensible default options
-	const options = {
-		headers: {
-			'Content-Type': 'application/json; charset=utf-8'
-		},
-		mode: 'cors',
-		auth: 'true',
-		...config
-	};
-	// Serialize body if necessary
-	if (options.body && typeof options.body === 'object') options.body = JSON.stringify(options.body);
-	// Set auth header
-	if (options.auth) {
-		const token = cache.authToken.load();
-		if (!token) {
-			return Promise.reject({
-				code: 400,
-				message: 'Missing auth token for Authorization header.'
-			});
-		}
-		delete options.token;
-		options.headers.Authorization = `Bearer ${token}`;
-	}
-	return fetch(url, options).then(res => {
-		if (!res.ok) {
-			if (res.headers.has('content-type') && res.headers.get('content-type').startsWith('application/json')) {
-				// It's a nice JSON error returned by us, so decode it
-				return res.json().then(err => Promise.reject(err));
-			}
-			// It's a less informative error returned by express
-			return Promise.reject({
-				code: res.status,
-				message: res.statusText
-			});
-		}
-		if (res.headers.has('content-type') && res.headers.get('content-type').startsWith('application/json'))
-			return res.json();
-		else return res;
-	});
+  const url = new URL(path);
+  if (params !== null)
+    Object.entries(params).forEach(([ k, v ]) => url.searchParams.append(k, v));
+  // set sensible default options
+  const options = {
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+    },
+    mode: 'cors',
+    auth: 'true',
+    ...config,
+  };
+  // Serialize body if necessary
+  if (options.body && typeof options.body === 'object')
+    options.body = JSON.stringify(options.body);
+  // Set auth header
+  if (options.auth) {
+    const token = cache.authToken.load();
+    if (!token) {
+      return Promise.reject({
+        code: 400,
+        message: 'Missing auth token for Authorization header.',
+      });
+    }
+    delete options.token;
+    options.headers.Authorization = `Bearer ${token}`;
+  }
+  return fetch(url, options).then((res) => {
+    if (!res.ok) {
+      if (
+        res.headers.has('content-type') &&
+        res.headers.get('content-type').startsWith('application/json')
+      ) {
+        // It's a nice JSON error returned by us, so decode it
+        return res.json().then((err) => {
+          err.code = res.status;
+          return Promise.reject(err);
+        });
+      }
+      // It's a less informative error returned by express
+      return Promise.reject({
+        code: res.status,
+        message: res.statusText,
+      });
+    }
+    if (
+      res.headers.has('content-type') &&
+      res.headers.get('content-type').startsWith('application/json')
+    )
+      return res.json();
+    else return res;
+  });
 }

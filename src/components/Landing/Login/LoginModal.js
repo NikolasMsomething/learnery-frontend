@@ -47,7 +47,7 @@ function LoginModal(props) {
 				<h2
 					style={{
 						paddingTop: 2 + "%",
-						marginBottom: "3rem",
+						marginBottom: "1rem",
 						fontFamily: "Permanent Marker",
 						fontSize: "2.5rem",
 						paddingBottom: "3px",
