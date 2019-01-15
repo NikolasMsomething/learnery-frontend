@@ -1,24 +1,26 @@
-import React, { Component } from "react";
-import Landing from "./components/Landing";
-import { Route, Switch, Redirect } from "react-router-dom";
-import Learn from "./components/Learn";
-import { BrowserRouter as Router } from "react-router-dom";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import Landing from './components/Landing';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import Learn from './components/Learn';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Demo from './components/Demo';
 
 class App extends Component {
-	render() {
-		return (
-			<Router>
-				<div className="App">
-					<Switch>
-						<Route exact path="/" component={Landing} />
-						<Route path="/learn" component={Learn} />
-						<Redirect to="/" />
-					</Switch>
-				</div>
-			</Router>
-		);
-	}
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route path="/learn" component={Learn} />
+            <Route path="/demo" component={Demo} />
+            <Redirect to="/" />
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default connect()(App);
