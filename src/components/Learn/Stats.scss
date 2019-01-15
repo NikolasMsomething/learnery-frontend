@@ -129,7 +129,6 @@ $breakpoint: 768px;
 		box-shadow: 0px 6px 0px $dark-grey;
 		border-radius: 0 20px 20px 0;
 		height: 100px;
-		width: 20 * .7%;
 		background: $grey;
 	}
 	&__learning {
@@ -140,7 +139,6 @@ $breakpoint: 768px;
 		border-radius: 0 20px 20px 0;
 		background: $orange;
 		height: 100px;
-		width: 50 * .7%;
 	}
 	&__mastered {
 		& > .stats-mastery-chart-bar__percentage {
@@ -150,7 +148,6 @@ $breakpoint: 768px;
 		border-radius: 0 20px 20px 0;
 		background: $green;
 		height: 100px;
-		width: 30 * .7%;
 	}
 	& &__percentage {
 		text-align: right;

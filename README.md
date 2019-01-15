@@ -29,7 +29,7 @@ The Solution:
 
 > The great thing about Learnery is that getting started and studying is a simple and smooth transaction. With a few click you're in and ready to go!
 
-### Tech
+## Tech
 
 Learnery uses a number of open source projects in conjuction:
 
@@ -41,10 +41,14 @@ Learnery uses a number of open source projects in conjuction:
 - [Sequelize](http://docs.sequelizejs.com/) -
   ORM used to query databases!
 
-### Installation
+## Installation
 
 Learnery requires [Node.js](https://nodejs.org/) v4+ to run.
 
 Install the dependencies and devDependencies and start the server.
 
 \$ npm install
+
+## Backend
+
+Looking for the backend? <a href="https://github.com/morgannewman/learnery-backend">Check it out!</a>

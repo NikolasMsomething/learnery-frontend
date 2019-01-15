@@ -1,129 +1,131 @@
 .learnAppHeader {
-	padding: 10px 2%;
-	display: flex;
-	justify-content: space-between;
-	background: white;
-	border-bottom: 3px solid #c4c4c4;
-	align-items: center;
-	h1 {
-		font-family: Roboto Mono;
-		font-size: 1.3rem;
-	}
+  padding: 10px 2%;
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  border-bottom: 3px solid #c4c4c4;
+  align-items: center;
+  h1 {
+    font-family: Roboto Mono;
+    font-size: 1.3rem;
+  }
 
-	a:visited {
-		color: black;
-	}
+  a:visited {
+    color: black;
+  }
 
-	@media (max-width: 720px) {
-		h1 {
-			font-size: 1.15rem;
-			display: none;
-		}
-	}
-	@media (max-width: 480px) {
-		h1 {
-			display: none;
-			font-size: 0.9rem;
-		}
-	}
+  @media (max-width: 720px) {
+    h1 {
+      font-size: 1.15rem;
+      display: none;
+    }
+  }
+  @media (max-width: 480px) {
+    h1 {
+      display: none;
+      font-size: 0.9rem;
+    }
+  }
 
-	&__inverted {
-		background-color: #ffca32;
-	}
+  &__inverted {
+    background-color: #ffca32;
+  }
 }
 
 .learnArrow {
-	width: 45px;
-	height: 45px;
-	@media (max-width: 720px) {
-		height: 30px;
-		width: 44px;
-	}
+  width: 45px;
+  height: 45px;
+
+  color: black;
+
+  &:visited {
+    color: black;
+  }
 }
 
 .learnLogo {
-	max-width: 200px;
-	width: 100%;
-	margin-left: 65px;
-	@media (max-width: 720px) {
-		margin-left: 20px;
-	}
-	@media (max-width: 480px) {
-		width: 125px;
-	}
+  max-width: 200px;
+  width: 100%;
+  margin-left: 65px;
+  @media (max-width: 720px) {
+    margin-left: 20px;
+  }
+  @media (max-width: 480px) {
+    width: 125px;
+  }
 }
 
 .learnAppMain {
-	width: 100%;
-	height: 100%;
-	background-color: #ffca32;
-	// overflow: hidden;
-	p {
-		display: block;
-	}
+  width: 100%;
+  height: 100%;
+  background-color: #ffca32;
+  // overflow: hidden;
+  p {
+    display: block;
+  }
 }
 
 .userBox {
-	max-width: 125px;
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	cursor: pointer;
-	.expandMore {
-		height: 22px;
-		width: 22px;
-	}
-	.expandMore:hover {
-		cursor: pointer;
-		color: rgb(117, 8, 8);
-	}
+  max-width: 125px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+  .expandMore {
+    height: 22px;
+    width: 22px;
+  }
+  .expandMore:hover {
+    cursor: pointer;
+    color: rgb(117, 8, 8);
+  }
 
-	@media (max-width: 720px) {
-		max-width: 50px;
-	}
+  @media (max-width: 720px) {
+    max-width: 50px;
+  }
 
-	@media (max-width: 480px) {
-		max-width: 50px;
-	}
+  @media (max-width: 480px) {
+    max-width: 50px;
+  }
 }
 
 .expanded-on {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 
-	justify-content: space-around;
-	width: 220px;
-	right: 0;
-	height: 80px;
-	background-color: white;
-	position: absolute;
-	border: 2px solid #c4c4c4;
-	margin-top: -3px;
-	h1 {
-		font-family: Roboto Mono;
-		font-size: 1.2rem;
-	}
-	.powerOff {
-		color: rgb(0, 0, 0);
-	}
-	cursor: pointer;
-	&:focus {
-		background-color: green;
-	}
-	&:hover {
-		background-color: var(--lnSalmon);
-		color: white;
-	}
+  justify-content: space-around;
+  width: 220px;
+  right: 0;
+  height: 80px;
+  background-color: white;
+  position: absolute;
+  border: 2px solid #c4c4c4;
+  margin-top: -3px;
+  h1 {
+    font-family: Roboto Mono;
+    font-size: 1.2rem;
+  }
+  .powerOff {
+    color: rgb(0, 0, 0);
+  }
+  cursor: pointer;
+  &:focus {
+    background-color: green;
+  }
+  &:hover {
+    background-color: var(--lnSalmon);
+    color: white;
+  }
 }
 
 .expanded-off {
-	display: none;
+  display: none;
 }
 
 .learnApp-loading {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
