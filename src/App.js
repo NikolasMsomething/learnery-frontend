@@ -10,14 +10,14 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
+        <section className="App">
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route path="/learn" component={Learn} />
             <Route path="/demo" component={Demo} />
             <Redirect to="/" />
           </Switch>
-        </div>
+        </section>
       </Router>
     );
   }

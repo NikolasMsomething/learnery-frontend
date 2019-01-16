@@ -18,82 +18,84 @@ import { FaPowerOff, FaRegChartBar } from 'react-icons/fa';
 import Logo from '../../assets/Logo.png';
 
 class Learn extends Component {
-	state = {
-		expandedUserInfo: false
-	};
+  state = {
+    expandedUserInfo: false
+  };
 
-	toggleUserInfoExpand = () => {
-		this.setState(
-			{
-				expandedUserInfo: !this.state.expandedUserInfo
-			},
-			() => {
-				if (this.state.expandedUserInfo) {
-					this.logOut.focus();
-				}
-			}
-		);
-	};
+  toggleUserInfoExpand = () => {
+    this.setState(
+      {
+        expandedUserInfo: !this.state.expandedUserInfo
+      },
+      () => {
+        if (this.state.expandedUserInfo) {
+          this.logOut.focus();
+        }
+      }
+    );
+  };
 
-	render() {
-		// Render loading spinner while submitting
+  render() {
+    // Render loading spinner while submitting
 
-		if (this.props.submitting)
-			return (
-				<div className="learnAppMain">
-					<Loading className="learnApp-loading" />
-				</div>
-			);
-		// Redirect if user not authenticated
-		if (!this.props.loggedIn) return <Redirect to="/" />;
+    if (this.props.submitting)
+      return (
+        <section className="learnAppMain">
+          <Loading className="learnApp-loading" />
+        </section>
+      );
+    // Redirect if user not authenticated
+    if (!this.props.loggedIn) return <Redirect to="/" />;
 
-		return (
-			<>
-				<header
-					className={
-						this.props.location.pathname === '/learn/stats'
-							? 'learnAppHeader learnAppHeader__inverted'
-							: 'learnAppHeader'
-					}
-				>
-					<Link to="/learn/stats">
-						<FaRegChartBar className="learnArrow" alt="" />
-					</Link>
+    return (
+      <>
+        <header
+          className={
+            this.props.location.pathname === '/learn/stats'
+              ? 'learnAppHeader learnAppHeader__inverted'
+              : 'learnAppHeader'
+          }
+        >
+          <Link to="/learn/stats">
+            <FaRegChartBar className="learnArrow" alt="" />
+          </Link>
 
-					<Link to="/learn/">
-						<img src={Logo} className="learnLogo" alt="" />
-					</Link>
+          <Link to="/learn/">
+            <img src={Logo} className="learnLogo" alt="" />
+          </Link>
 
-					{/* Make this a button with no default styling, with the username and icon */}
-					<div onClick={this.toggleUserInfoExpand} className="userBox">
-						<h1>{this.props.user.username}</h1>
-						<MdExpandMore className="expandMore" />
-					</div>
-				</header>
-				<div
-					onClick={() => {
-						cache.authToken.clear();
-						this.props.dispatch(closeModals());
-						this.props.dispatch(logOut());
-					}}
-					ref={element => (this.logOut = element)}
-					className={this.state.expandedUserInfo ? 'expanded-on' : 'expanded-off'}
-				>
-					<h1>LOGOUT?</h1>
-					<FaPowerOff className="powerOff" />
-				</div>
-				<Route exact path="/learn" component={Card} />
-				<Route exact path="/learn/stats" component={Stats} />
-			</>
-		);
-	}
+          {/* Make this a button with no default styling, with the username and icon */}
+          <div onClick={this.toggleUserInfoExpand} className="userBox">
+            <h1>{this.props.user.username}</h1>
+            <MdExpandMore className="expandMore" />
+          </div>
+        </header>
+        <div
+          onClick={() => {
+            cache.authToken.clear();
+            this.props.dispatch(closeModals());
+            this.props.dispatch(logOut());
+          }}
+          ref={element => (this.logOut = element)}
+          className={
+            this.state.expandedUserInfo ? 'expanded-on' : 'expanded-off'
+          }
+        >
+          <h1>LOGOUT?</h1>
+          <FaPowerOff className="powerOff" />
+        </div>
+        <Route exact path="/learn" component={Card} />
+        <Route exact path="/learn/stats" component={Stats} />
+      </>
+    );
+  }
 }
 
 const mapStateToProps = state => ({
-	currentCard: state.learn.currentCard,
-	user: state.auth.user,
-	loggedIn: state.auth.loggedIn,
-	submitting: state.auth.submitting
+  currentCard: state.learn.currentCard,
+  user: state.auth.user,
+  loggedIn: state.auth.loggedIn,
+  submitting: state.auth.submitting
 });
 
 export default connect(mapStateToProps)(Learn);
