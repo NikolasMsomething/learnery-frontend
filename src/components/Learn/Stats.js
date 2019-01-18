@@ -136,7 +136,7 @@ class Stats extends Component {
               </div>
             </div>
           </section>
-          <section className="stats-fun-facts">
+          {/* <section className="stats-fun-facts">
             <h2 className="stats-subheading">Fun Facts</h2>
             <div className="stats-fun-facts-fact">
               <p>
@@ -169,7 +169,7 @@ class Stats extends Component {
                 cards correct
               </p>
             </div>
-          </section>
+          </section> */}
         </main>
       </div>
     );
